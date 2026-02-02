@@ -216,7 +216,7 @@ Kimi K2.5 is an open-source, native multimodal agentic model built through conti
 <td align="center" style="vertical-align: middle">82.0*</td>
 </tr>
 <tr>
-<td align="center" style="vertical-align: middle">InfoVQA (val)</td>
+<td align="center" style="vertical-align: middle">InfoVQA (test)</td>
 <td align="center" style="vertical-align: middle">92.6</td>
 <td align="center" style="vertical-align: middle">84*</td>
 <td align="center" style="vertical-align: middle">76.9*</td>
