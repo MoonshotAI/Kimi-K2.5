@@ -1,0 +1,17 @@
+# Kimi-K2.5 vLLM Serving Configuration (256K Context Window)
+# Model architecture: 1T MoE (32B active), MLA attention, MoonViT multimodal encoder
+model: "moonshotai/Kimi-K2.5"
+tensor-parallel-size: 8
+trust-remote-code: true
+
+# FP8 KV-Cache Compression (Fixes CUDA OOM at 256K tokens)
+kv-cache-dtype: "fp8"
+max-model-len: 262144
+
+# Multimodal MoonViT Data Parallel Mode (prevents TP communication overhead)
+mm-encoder-tp-mode: "data"
+
+# Parsers for Kimi-K2.5 Thinking Mode and Agent Swarm tool calls
+enable-auto-tool-choice: true
+tool-call-parser: "kimi_k2"
+reasoning-parser: "kimi_k2"
