@@ -17,6 +17,14 @@ Here is the example to serve this model on a H200 single node with TP8 via vLLM:
 ```bash
 vllm serve $MODEL_PATH -tp 8 --mm-encoder-tp-mode data --trust-remote-code --tool-call-parser kimi_k2 --reasoning-parser kimi_k2
 ```
+
+### Long-Context (256K) Serving with FP8 KV Cache
+
+To serve Kimi-K2.5 at its full 256K context length (`262,144` tokens) or when using deep Thinking Mode without running out of GPU memory (CUDA OOM), you can use the structured vLLM recipe with FP8 KV-cache enabled:
+
+```bash
+vllm serve moonshotai/Kimi-K2.5 --config docs/vllm_k2.5_fp8_kv.yaml
+
 **Key notes**
 - `--tool-call-parser kimi_k2`: Required for enabling tool calling
 - `--reasoning-parser kimi_k2`: Kimi-K2.5 enables thinking mode by default. Make sure to pass this for correct reasoning processing.
